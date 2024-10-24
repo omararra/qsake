@@ -17,6 +17,7 @@ def httptrig(req: func.HttpRequest) -> func.HttpResponse:
             name = req_body.get('name')
 
     if name:
+        print("Starting qatarsale.py")
         qatarsale.main()
         return func.HttpResponse(f"Hello, {name}. This HTTP triggered function executed successfully.")
     else:
