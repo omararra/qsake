@@ -7,7 +7,6 @@ app = func.FunctionApp(http_auth_level=func.AuthLevel.FUNCTION)
 @app.route(route="httptrig")
 def httptrig(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
-    qatarsale.main()
     name = req.params.get('name')
     if not name:
         try:
@@ -18,6 +17,7 @@ def httptrig(req: func.HttpRequest) -> func.HttpResponse:
             name = req_body.get('name')
 
     if name:
+        qatarsale.main()
         return func.HttpResponse(f"Hello, {name}. This HTTP triggered function executed successfully.")
     else:
         return func.HttpResponse(
