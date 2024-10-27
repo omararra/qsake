@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import re
 from twilio.rest import Client
 def get_car_listings(page):
+    print(f"Requesting page {page} of car listings")
     url = f"https://qatarsale.com/en/products/cars_for_sale?sortBy=AuctionStartTime_desc&page={page}"
     response = requests.get(url)
     soup = BeautifulSoup(response.content, "html.parser")
@@ -18,7 +19,9 @@ def get_car_listings(page):
             car = extract_details(detail)
             car_listings.append(car)
 
+        print(f"Found {len(car_listings)} car listings on page {page}")
         return car_listings
+    print(f"No car listings found on page {page}")
     return []
 
 # Function to extract details of a car
