@@ -1,11 +1,10 @@
 import requests
-import os
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
 
 def send_message(car_details):
     print("Sending Discord message...")
-    webhook_url = "https://discord.com/api/webhooks/1304917955603071066/X-m3t_bmut_ZMr7eh5_9NCbTlPXid2sWIevcBfiT0x014B6NLKXRpV7fmxkoOzhjy4zT"
+    webhook_url = "https://discord.com/api/webhooks/1304125279865798756/M1fm8esj8j0MQa5685-D_Q7eynkflmq6o9MAWoZklXFoiezQloBuZt-sDnC7LURJffId"
     data = {
         "content": (
             f"New car listing:\n"
@@ -30,7 +29,7 @@ def send_message(car_details):
     print("Sending Email message...")
     message = Mail(
         from_email='info@oryxdev.tech',
-        to_emails='smokadem@gmail.com',
+        to_emails='omarsamirelmokadem@gmail.com',
         subject='New Listing',
         html_content=(
             f"New car listing:<br>"
@@ -46,7 +45,7 @@ def send_message(car_details):
             f"<strong>Link:</strong> <a href='{car_details[9]}'>Click Here</a><br>"
         ))
     try:
-        sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
+        sg = SendGridAPIClient("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")
         response = sg.send(message)
         print(response.status_code)
         print(response.body)

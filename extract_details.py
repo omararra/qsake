@@ -1,7 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
 import re
-from twilio.rest import Client
 def get_car_listings(page):
     print(f"Requesting page {page} of car listings")
     url = f"https://qatarsale.com/en/products/cars_for_sale?sortBy=AuctionStartTime_desc&page={page}"
