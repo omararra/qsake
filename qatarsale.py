@@ -3,7 +3,7 @@ from twilio.rest import Client
 
 def send_message(car_details):
     print("Sending Discord message...")
-    webhook_url = "https://discord.com/api/webhooks/1304125279865798756/M1fm8esj8j0MQa5685-D_Q7eynkflmq6o9MAWoZklXFoiezQloBuZt-sDnC7LURJffId"
+    webhook_url = ""
     data = {
         "content": (
             f"New car listing:\n"
@@ -26,8 +26,8 @@ def send_message(car_details):
     else:
         print(f"Failed to send message. Status code: {response.status_code}")
     print("Sending WhatsApp message...")
-    account_sid = 'ACcc19f7f4b5e9972e26f19afc773a076a'
-    auth_token = '9c901fee2bb955dd749acc740f2466d2'
+    account_sid = ''
+    auth_token = ''
     client = Client(account_sid, auth_token)
     
     message = client.messages.create(
